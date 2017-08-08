@@ -10,7 +10,7 @@ namespace RockPaperScissors
     {
         public string hand;
         public string name;
-        public string move;
+        
         public int score;
        
         
@@ -28,11 +28,10 @@ namespace RockPaperScissors
                 "Select '3' for Scissors" + Environment.NewLine +
                 "select '4' for Lizard" + Environment.NewLine +
                 "Select '5' for Spock");
+            Console.WriteLine("You chose " + hand + ".");
             hand = Console.ReadLine();
 
-            //string  myMove = new move();
-            //Console.WriteLine("You chose " + move + ".");
-            //move = Console.ReadLine();
+            
         }
 
     }

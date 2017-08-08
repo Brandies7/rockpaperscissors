@@ -9,9 +9,12 @@ namespace RockPaperScissors
     public class ComputerAI
     {
         public string name;
-        public int move;
+       
+        List<string> compmove = new List<string> { "1", "2", "3", "4", "5" };
+        public string hand;
         Random random = new Random();
-        public string computerplayer;
+        public int score;
+        
         public ComputerAI()
         {
 
@@ -26,8 +29,8 @@ namespace RockPaperScissors
                 "Select '3' for Scissors" + Environment.NewLine +
                 "select '4' for Lizard" + Environment.NewLine +
                 "Select '5' for Spock");
-            move = random.Next(move);
-            Console.WriteLine("You Chose " + move + ".");
+            hand=compmove[random.Next(0,compmove.Count)];
+            Console.WriteLine("You Chose " + hand + ".");
         }
 
         public void GetComputerName()
