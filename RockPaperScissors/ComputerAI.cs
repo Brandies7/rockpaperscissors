@@ -8,8 +8,8 @@ namespace RockPaperScissors
 {
     public class ComputerAI : Player
     {
-        public int score;
-        public string name;
+
+        Random random;
         public string computerplayer;
         public ComputerAI()
         {

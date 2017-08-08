@@ -10,7 +10,7 @@ namespace RockPaperScissors
     {
         public Player playerOne;
         public Player playerTwo;
-        public Move = new move;
+        //public Move == new move;
         public int score;
         public Gametime()
         {
@@ -18,13 +18,14 @@ namespace RockPaperScissors
         }
 
         public string GetRules;
-        
+
 
         public void Rules()
         {
             Console.WriteLine("Welcome Players To The R.P.S.L.S. Game! Before we begin, lets go over the rules." + Environment.NewLine +
                                "Scissors cuts Paper, Paper covers Rock, Rock crushes Lizard, Spock smashes Scissors, Scissors decapitates Lizard" + Environment.NewLine +
                                "Lizard eats Paper, Paper disproves Spock, Spock vaporizes Rock, and as always, Rock crushes Scissors." + Environment.NewLine +
+                               "When Prompted To Do So:" + Environment.NewLine +
                                "Choose '1' for Rock." + Environment.NewLine +
                                "Choose '2' for Paper." + Environment.NewLine +
                                "Choose '3' for Scissors." + Environment.NewLine +
@@ -32,13 +33,13 @@ namespace RockPaperScissors
                                "Choose '5' for Spock." + Environment.NewLine +
                                "Best out of 3 Wins. Choose Wisely and Live Long and Prosper!");
 
-           
+
             GetRules = Console.ReadLine();
-            
+
 
         }
 
-        
+
         public void GetPlayers()
         {
             playerOne = new Human();
@@ -58,35 +59,47 @@ namespace RockPaperScissors
                     break;
             }
         }
-        //Scissors cuts Paper
-        //Paper covers Rock
-        //Rock crushes Lizard
-        //Lizard poisons Spock
-        //Spock smashes Scissors
-        //Scissors decapitates Lizard
-        //Lizard eats Paper
-        //Paper disproves Spock
-        //Spock vaporizes Rock
-        //(and as it always has) Rock crushes Scissors
-        //1=rock
-        //2=Paper
-        //3=scissors
-        //4=Lizard
-        //5=Spock
 
-        //public void RoundOne()
-        //{
-        ///Console.WriteLine("Player One's Turn");
-        //string playerone = Console.ReadLine();
-        //switch (playerone)
-        //{
-        // case "1":
 
-        // default:
-    }
 
+        public void DetermineScore()
+        {
+            if (playerOne.hand == "1" && playerTwo.hand == "3" || playerTwo.hand == "4")
+            {
+                Console.WriteLine("Congratulations " + playerOne.name + ", You Win This Round!");
+                Console.ReadLine();
+            }
+            else if (playerOne.hand == "2" && playerTwo.hand == "1" || playerTwo.hand == "5")
+            {
+                Console.WriteLine("Congratulations " + playerOne.name + ", You Win This Round!");
+                Console.ReadLine();
+            }
+            else if (playerOne.hand == "3" && playerTwo.hand == "2" || playerTwo.hand == "4")
+            {
+                Console.WriteLine("Congratulations " + playerOne.name + ", You Win This Round!");
+                Console.ReadLine();
+            }
+            else if (playerOne.hand == "4" && playerTwo.hand == "2" || playerTwo.hand == "5")
+            {
+                Console.WriteLine("Congratulations " + playerOne.name + ", You Win This Round!");
+                Console.ReadLine();
+            }
+            else if (playerOne.hand == "5" && playerTwo.hand == "1" || playerTwo.hand == "3")
+            {
+                Console.WriteLine("Congratulations " + playerOne.name + ", You Win This Round!");
+                Console.ReadLine();
+            }
+            else if (playerOne.hand == playerTwo.hand)
+            {
+                Console.WriteLine("You Tied, Try Again");
+                Console.ReadLine();
+                DetermineScore();
+            }
+            else
+            {
+                Console.WriteLine("Congratulations " + playerTwo.name + ", You Win This Round!");
+                Console.ReadLine();
+            }
         }
-
-
-    //}
-//}
+    }
+}

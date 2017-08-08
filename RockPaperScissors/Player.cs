@@ -9,25 +9,23 @@ namespace RockPaperScissors
     public class Player
     {
 
-        
+        public string hand;
         public string name;
         public int move;
         public int score;
-        Random random;
-
-      
         public Player()
         {
-            Console.WriteLine("Please enter .");
+            Console.WriteLine("Please enter name.");
             name = Console.ReadLine();
+            
         }
 
         
-        //public void GetMove(Gesture gesture)
-        //{
-           // move = random.Next(1, Move.numOfSides + 1);
-            //Console.WriteLine("You rolled a " + move + ".");
-        //}
+        public void GetMove(hand gesture)
+        {
+            string move = move.hand();
+            Console.WriteLine("You chose " + move + ".");
+        }
 
     }
 }
