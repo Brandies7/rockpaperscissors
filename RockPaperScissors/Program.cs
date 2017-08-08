@@ -11,10 +11,16 @@ namespace RockPaperScissors
         static void Main(string[] args)
         {
             Gametime gametime = new Gametime();
-            Player playerone = new Player();
-            gametime.Rules();
-            //playerone.GetPlayerOne();
+            gametime.PlayGame();
+            Console.ReadLine();
+            /*Human playerOne = new Human();
+            Human playerTwo = new Human();
+            gametime.ExplainRules();
             gametime.GetPlayers();
+            playerOne.GetHand();
+            playerTwo.GetHand();
+            gametime.DetermineScore(playerOne, playerTwo);*/
+           
         }
     }
 }

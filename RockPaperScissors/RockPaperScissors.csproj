@@ -46,7 +46,6 @@
     <Compile Include="ComputerAI.cs" />
     <Compile Include="Gametime.cs" />
     <Compile Include="Human.cs" />
-    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
