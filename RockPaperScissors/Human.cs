@@ -6,34 +6,25 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissors
 {
-    public class Human 
+    public class Human : Player
     {
-        public string hand;
-        public string name;
-        
-        public int score;
-       
-        
         public Human()
+        {
+
+        }
+        public void GetName()
         {
             Console.WriteLine("Please enter name.");
             name = Console.ReadLine();
-
         }
-        public void GetHand()
-        {
-            Console.WriteLine("Make Your Move! Choose Wisely!" + Environment.NewLine +
-                "Select '1' for Rock" + Environment.NewLine +
-                "Select '2' for Paper" + Environment.NewLine +
-                "Select '3' for Scissors" + Environment.NewLine +
-                "select '4' for Lizard" + Environment.NewLine +
-                "Select '5' for Spock");
-            Console.WriteLine("You chose " + hand + ".");
-            hand = Console.ReadLine();
-
-            
-        }
-
     }
 }
+
+
+        
+            
+            
+
+            
+ 
 

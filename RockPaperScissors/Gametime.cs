@@ -8,9 +8,8 @@ namespace RockPaperScissors
 {
     public class Gametime
     {
-        public Human playerOne;
-        public Human playerTwo;
-        public ComputerAI playerAI;
+        public Player playerOne;
+        public Player playerTwo;
         public int score;
         public Gametime()
         {
@@ -33,9 +32,11 @@ namespace RockPaperScissors
             {
                 case "1":
                     playerTwo = new Human();
+                    PlayGameHuman();
                     break;
                 case "2":
-                    playerAI = new ComputerAI();
+                    playerTwo = new ComputerAI();
+                    PlayGameComp();
                     break;
                 default:
                     Console.WriteLine("Invalid response.");
@@ -43,33 +44,33 @@ namespace RockPaperScissors
                     break;
             }
         }
-        public void DetermineScore(Human playerOne, Human playerTwo, ComputerAI playerAI)
+        public void DetermineScore(playerOne, playerTwo)
         {
-            if (playerOne.hand == "1" && playerTwo.hand == "3" || playerTwo.hand == "4" || playerAI.hand == "3" || playerAI.hand == "4")
+            if (playerOne.hand == "1" && playerTwo.hand == "3" || playerTwo.hand == "4")
             {
                 playerOne.score++;
                 Console.WriteLine("Congratulations " + playerOne.name + ", You Win This Round!");
                 Console.ReadLine();
             }
-            else if (playerOne.hand == "2" && playerTwo.hand == "1" || playerTwo.hand == "5" || playerAI.hand == "1" || playerAI.hand == "5")
+            else if (playerOne.hand == "2" && playerTwo.hand == "1" || playerTwo.hand == "5")
             {
                 playerOne.score++;
                 Console.WriteLine("Congratulations " + playerOne.name + ", You Win This Round!");
                 Console.ReadLine();
             }
-            else if (playerOne.hand == "3" && playerTwo.hand == "2" || playerTwo.hand == "4" || playerAI.hand == "2" || playerAI.hand == "4")
+            else if (playerOne.hand == "3" && playerTwo.hand == "2" || playerTwo.hand == "4")
             {
                 playerOne.score++;
                 Console.WriteLine("Congratulations " + playerOne.name + ", You Win This Round!");
                 Console.ReadLine();
             }
-            else if (playerOne.hand == "4" && playerTwo.hand == "2" || playerTwo.hand == "5" || playerAI.hand == "2" || playerAI.hand == "5")
+            else if (playerOne.hand == "4" && playerTwo.hand == "2" || playerTwo.hand == "5")
             {
                 playerOne.score++;
                 Console.WriteLine("Congratulations " + playerOne.name + ", You Win This Round!");
                 Console.ReadLine();
             }
-            else if (playerOne.hand == "5" && playerTwo.hand == "1" || playerTwo.hand == "3" || playerAI.hand == "3" || playerAI.hand == "1")
+            else if (playerOne.hand == "5" && playerTwo.hand == "1" || playerTwo.hand == "3")
             {
                 playerOne.score++;
                 Console.WriteLine("Congratulations " + playerOne.name + ", You Win This Round!");
@@ -79,18 +80,18 @@ namespace RockPaperScissors
             {
                 Console.WriteLine("You Tied, Try Again");
                 Console.ReadLine();
-                DetermineScore(playerOne, playerTwo, playerAI);
+                DetermineScore(playerOne, playerTwo);
             }
             else
             {
                 playerTwo.score++;
                 Console.WriteLine("Congratulations " + playerTwo.name + ", You Win This Round!");
                 Console.ReadLine();
-                CheckForWinner(playerOne, playerTwo, playerAI);
+                CheckForWinner(playerOne, playerTwo);
             }
         }
 
-        public void CheckForWinner(Human playerOne, Human playerTwo, ComputerAI playerAI)
+        public void CheckForWinner(playerOne, playerTwo)
         {
             if (playerOne.score == 2)
             {
@@ -100,29 +101,39 @@ namespace RockPaperScissors
             {
                 Console.WriteLine(playerTwo.name + " You Won!");
             }
-            else if (playerAI.score == 2)
-            {
-                Console.WriteLine(playerAI.name + "You Won!");
-            }
+
         }
 
-        public void PlayGame()
+        public void PlayGameHuman()
         {
             ExplainRules();
             GetPlayers();
 
-            while (playerOne.score < 2 && playerTwo.score < 2 || playerAI.score < 2)
+            while (playerOne.score < 2 && playerTwo.score > 2)
             {
                 playerOne.GetHand();
                 playerTwo.GetHand();
-                playerAI.CompMove();
-                DetermineScore(playerOne, playerTwo, playerAI);
+                DetermineScore(playerOne, playerTwo);
             }
+            Console.WriteLine("Game over, please play again!");
+        }
+        public void PlayGameComp()
+        {
+            ExplainRules();
+            GetPlayers();
 
+            while (playerOne.score < 2 && playerTwo.score > 2)
+            {
+                playerOne.GetHand();
+
+                playerTwo.GetHand();
+                DetermineScore(playerOne, playerTwo);
+            }
             Console.WriteLine("Game over, please play again!");
         }
     }
 }
+     
             
         
     

@@ -6,39 +6,27 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissors
 {
-    public class ComputerAI
+    public class ComputerAI : Player
     {
-        public string name;
-       
-        List<string> compmove = new List<string> { "1", "2", "3", "4", "5" };
-        public string hand;
-        Random random = new Random();
-        public int score;
-        
+
+        Random random;
         public ComputerAI()
         {
-
-
+            name = "AIRobot";
         }
-
-        public void CompMove()
+        public override string GetHand()
         {
-            Console.WriteLine("Make Your Move! Choose Wisely!" + Environment.NewLine +
-                "Select '1' for Rock" + Environment.NewLine +
-                "Select '2' for Paper" + Environment.NewLine +
-                "Select '3' for Scissors" + Environment.NewLine +
-                "select '4' for Lizard" + Environment.NewLine +
-                "Select '5' for Spock");
-            hand=compmove[random.Next(0,compmove.Count)];
-            Console.WriteLine("You Chose " + hand + ".");
+            Random random = new Random();
+            int hand = random.Next(1, 5);
+            return hand.ToString();
         }
-
-        public void GetComputerName()
-        {
-            Console.WriteLine("Hello My name is Robert. Goodluck!");
-            name = Console.ReadLine();
-        }
-
-
     }
 }
+
+        
+
+
+
+
+
+  
